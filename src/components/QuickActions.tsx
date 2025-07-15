@@ -21,7 +21,11 @@ const QuickActions = () => {
       description: 'Cursos e capacitações',
       color: 'bg-gradient-to-br from-blue-500 to-blue-600',
       hoverColor: 'hover:from-blue-600 hover:to-blue-700',
-      category: 'Desenvolvimento'
+      category: 'Desenvolvimento',
+      onClick: () => {
+        console.log('Navegando para Treinamentos...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: Gift,
@@ -29,7 +33,11 @@ const QuickActions = () => {
       description: 'Vantagens e descontos',
       color: 'bg-gradient-to-br from-green-500 to-green-600',
       hoverColor: 'hover:from-green-600 hover:to-green-700',
-      category: 'RH'
+      category: 'RH',
+      onClick: () => {
+        console.log('Navegando para Benefícios...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: MessageSquare,
@@ -37,7 +45,11 @@ const QuickActions = () => {
       description: 'Notícias e atualizações',
       color: 'bg-gradient-to-br from-purple-500 to-purple-600',
       hoverColor: 'hover:from-purple-600 hover:to-purple-700',
-      category: 'Comunicação'
+      category: 'Comunicação',
+      onClick: () => {
+        console.log('Navegando para Comunicados...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: TrendingUp,
@@ -45,7 +57,11 @@ const QuickActions = () => {
       description: 'Iniciativas em andamento',
       color: 'bg-gradient-to-br from-orange-500 to-orange-600',
       hoverColor: 'hover:from-orange-600 hover:to-orange-700',
-      category: 'Estratégia'
+      category: 'Estratégia',
+      onClick: () => {
+        console.log('Navegando para Projetos...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: Users,
@@ -53,7 +69,11 @@ const QuickActions = () => {
       description: 'Diretório e contatos',
       color: 'bg-gradient-to-br from-pink-500 to-pink-600',
       hoverColor: 'hover:from-pink-600 hover:to-pink-700',
-      category: 'Pessoas'
+      category: 'Pessoas',
+      onClick: () => {
+        console.log('Navegando para Equipe...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: Calendar,
@@ -61,7 +81,11 @@ const QuickActions = () => {
       description: 'Agenda e comemorações',
       color: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
       hoverColor: 'hover:from-indigo-600 hover:to-indigo-700',
-      category: 'Agenda'
+      category: 'Agenda',
+      onClick: () => {
+        console.log('Navegando para Eventos...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: FileText,
@@ -69,7 +93,11 @@ const QuickActions = () => {
       description: 'Políticas e formulários',
       color: 'bg-gradient-to-br from-teal-500 to-teal-600',
       hoverColor: 'hover:from-teal-600 hover:to-teal-700',
-      category: 'Recursos'
+      category: 'Recursos',
+      onClick: () => {
+        console.log('Navegando para Documentos...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     },
     {
       icon: Coffee,
@@ -77,7 +105,11 @@ const QuickActions = () => {
       description: 'TI e RH',
       color: 'bg-gradient-to-br from-amber-500 to-amber-600',
       hoverColor: 'hover:from-amber-600 hover:to-amber-700',
-      category: 'Ajuda'
+      category: 'Ajuda',
+      onClick: () => {
+        console.log('Navegando para Suporte...');
+        // Aqui você pode adicionar a lógica de navegação
+      }
     }
   ];
 
@@ -88,47 +120,52 @@ const QuickActions = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Acesso Rápido
           </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p class="text-gray-600 text-xl max-w-2xl mx-auto leading-relaxed">
             Tudo que você precisa, na palma da sua mão. Navegue facilmente pelas principais funcionalidades do portal.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {actions.map((action, index) => (
-            <Card 
+            <button
               key={index}
-              className="group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 bg-white overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={action.onClick}
+              className="w-full text-left"
             >
-              <CardContent className="p-8 text-center relative">
-                {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10">
-                  <div className={`${action.color} ${action.hoverColor} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-xl`}>
-                    <action.icon className="h-10 w-10 text-white" />
-                  </div>
+              <Card 
+                className="group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 bg-white overflow-hidden h-full"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-8 text-center relative h-full">
+                  {/* Background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <div className="space-y-2 mb-4">
-                    <h3 className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors">
-                      {action.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {action.description}
-                    </p>
+                  <div className="relative z-10 h-full flex flex-col">
+                    <div className={`${action.color} ${action.hoverColor} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-xl`}>
+                      <action.icon className="h-10 w-10 text-white" />
+                    </div>
+                    
+                    <div className="space-y-2 mb-4 flex-grow">
+                      <h3 className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors">
+                        {action.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {action.description}
+                      </p>
+                    </div>
+                    
+                    <div className="text-xs text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full inline-block">
+                      {action.category}
+                    </div>
+                    
+                    {/* Arrow indicator */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                      <ArrowRight className="h-5 w-5 text-primary" />
+                    </div>
                   </div>
-                  
-                  <div className="text-xs text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full inline-block">
-                    {action.category}
-                  </div>
-                  
-                  {/* Arrow indicator */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                    <ArrowRight className="h-5 w-5 text-primary" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </button>
           ))}
         </div>
 
