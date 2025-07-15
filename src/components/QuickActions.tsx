@@ -120,7 +120,7 @@ const QuickActions = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Acesso Rápido
           </h2>
-          <p class="text-gray-600 text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-xl max-w-2xl mx-auto leading-relaxed">
             Tudo que você precisa, na palma da sua mão. Navegue facilmente pelas principais funcionalidades do portal.
           </p>
         </div>
