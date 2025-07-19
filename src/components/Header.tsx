@@ -1,10 +1,24 @@
 
 import React from 'react';
-import { Bell, User, Settings, Search, Menu } from 'lucide-react';
+import { Bell, User, Settings, Search, Menu, Edit3, LogOut, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-gray-200/80 px-6 py-4 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -48,9 +62,37 @@ const Header = () => {
           </Button>
           
           <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-gray-200">
-            <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full h-10 w-10 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-              <User className="h-5 w-5" />
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="bg-gradient-to-br from-primary to-primary/80 text-white rounded-full h-10 w-10 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                  <User className="h-5 w-5" />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56 bg-white border shadow-lg">
+                <DropdownMenuItem 
+                  onClick={() => handleNavigate('/conta')}
+                  className="cursor-pointer hover:bg-gray-50"
+                >
+                  <UserCircle className="mr-2 h-4 w-4" />
+                  <span>Minha Conta</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleNavigate('/admin')}
+                  className="cursor-pointer hover:bg-gray-50"
+                >
+                  <Edit3 className="mr-2 h-4 w-4" />
+                  <span>Centro de Edição</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem 
+                  onClick={() => handleNavigate('/login')}
+                  className="cursor-pointer hover:bg-gray-50 text-red-600"
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Logout</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <div className="text-sm hidden lg:block">
               <div className="font-semibold text-gray-900">João Silva</div>
               <div className="text-gray-500 font-medium">Operação</div>
