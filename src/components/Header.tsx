@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, User, Settings, Search, Menu, Edit3, LogOut, UserCircle } from 'lucide-react';
+import { Bell, User, Settings, Search, Menu, Edit3, LogOut, UserCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -46,6 +46,15 @@ const Header = () => {
 
         {/* User Actions */}
         <div className="flex items-center space-x-2">
+          <Button 
+            variant="ghost" 
+            onClick={() => handleNavigate('/organograma')}
+            className="hidden md:flex items-center gap-2 hover:bg-primary/10 rounded-xl px-4 py-2 text-gray-600 hover:text-primary"
+          >
+            <Users className="h-5 w-5" />
+            <span className="font-medium">Equipe</span>
+          </Button>
+          
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
           </Button>
