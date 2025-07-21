@@ -23,13 +23,14 @@ import { organizationData, getDepartments, Employee } from '@/data/organizationD
 import EmployeeCard from '@/components/organization/EmployeeCard';
 import EmployeeModal from '@/components/organization/EmployeeModal';
 import OrganizationTree from '@/components/organization/OrganizationTree';
+import VisualOrgChart from '@/components/organization/VisualOrgChart';
 import Header from '@/components/Header';
 
 const Organization: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'tree' | 'grid'>('tree');
+  const [viewMode, setViewMode] = useState<'visual' | 'tree' | 'grid'>('visual');
   const [isCompact, setIsCompact] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -155,6 +156,14 @@ const Organization: React.FC = () => {
               {/* View Mode */}
               <div className="flex items-center space-x-2">
                 <Button
+                  variant={viewMode === 'visual' ? 'default' : 'outline'}
+                  onClick={() => setViewMode('visual')}
+                  size="sm"
+                >
+                  <Users className="h-4 w-4 mr-1" />
+                  Organograma
+                </Button>
+                <Button
                   variant={viewMode === 'tree' ? 'default' : 'outline'}
                   onClick={() => setViewMode('tree')}
                   size="sm"
@@ -193,7 +202,7 @@ const Organization: React.FC = () => {
             </div>
 
             {/* Tree Controls */}
-            {viewMode === 'tree' && (
+            {(viewMode === 'tree' || viewMode === 'visual') && (
               <div className="flex items-center space-x-2">
                 <Button variant="outline" size="sm" onClick={handleExpandAll}>
                   Expandir Tudo
@@ -209,7 +218,19 @@ const Organization: React.FC = () => {
         {/* Organization Chart */}
         <Card className="bg-white shadow-lg">
           <CardContent className="p-6">
-            {viewMode === 'tree' ? (
+            {viewMode === 'visual' ? (
+              <div className="min-h-[600px]">
+                {ceo && (
+                  <VisualOrgChart
+                    employee={ceo}
+                    onEmployeeClick={handleEmployeeClick}
+                    isCompact={isCompact}
+                    expandedNodes={expandedNodes}
+                    onToggleNode={handleToggleNode}
+                  />
+                )}
+              </div>
+            ) : viewMode === 'tree' ? (
               <div className="overflow-x-auto">
                 {ceo && (
                   <OrganizationTree
