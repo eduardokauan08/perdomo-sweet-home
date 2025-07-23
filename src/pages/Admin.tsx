@@ -4,6 +4,7 @@ import AdminHeader from '@/components/admin/AdminHeader';
 import AdminNavigation from '@/components/admin/AdminNavigation';
 import ItemsList from '@/components/admin/ItemsList';
 import EditForm from '@/components/admin/EditForm';
+import EditModal from '@/components/admin/EditModal';
 import { useToast } from '@/hooks/use-toast';
 
 const Admin = () => {
@@ -110,7 +111,7 @@ const Admin = () => {
           onSectionChange={setActiveSection}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className={`grid gap-6 ${activeSection === 'events' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
           <ItemsList
             activeSection={activeSection}
             benefits={benefits}
@@ -120,7 +121,8 @@ const Admin = () => {
             onDelete={handleDelete}
           />
 
-          {(editingItem || isAddingNew) && (
+          {/* Formulário lateral apenas para eventos */}
+          {(editingItem || isAddingNew) && activeSection === 'events' && (
             <EditForm
               item={editingItem}
               section={activeSection}
@@ -133,6 +135,21 @@ const Admin = () => {
             />
           )}
         </div>
+
+        {/* Modal para benefícios e produtos */}
+        {(editingItem || isAddingNew) && (activeSection === 'benefits' || activeSection === 'products') && (
+          <EditModal
+            item={editingItem}
+            section={activeSection as 'benefits' | 'products'}
+            isNew={isAddingNew}
+            onSave={handleSave}
+            onCancel={() => {
+              setEditingItem(null);
+              setIsAddingNew(false);
+            }}
+            isOpen={true}
+          />
+        )}
       </div>
     </div>
   );
