@@ -11,6 +11,7 @@ import Notices from "./pages/Notices";
 import NoticeDetail from "./pages/NoticeDetail";
 import Organization from "./pages/Organization";
 import Admin from "./pages/Admin";
+import AdminUsers from "./pages/AdminUsers";
 import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/notices/:slug" element={<NoticeDetail />} />
           <Route path="/organograma" element={<Organization />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-users" element={<AdminUsers />} />
           <Route path="/conta" element={<Account />} />
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

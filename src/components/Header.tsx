@@ -92,6 +92,13 @@ const Header = () => {
                   <Edit3 className="mr-2 h-4 w-4" />
                   <span>Centro de Edição</span>
                 </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={() => handleNavigate('/admin-users')}
+                  className="cursor-pointer hover:bg-gray-50"
+                >
+                  <Users className="mr-2 h-4 w-4" />
+                  <span>Centro de Administração</span>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem 
                   onClick={() => handleNavigate('/login')}
