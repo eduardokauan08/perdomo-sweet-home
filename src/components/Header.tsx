@@ -16,7 +16,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleNavigate = (path: string) => {
-    navigate(path);
+    navigate(`/portal${path}`);
   };
 
   return (
