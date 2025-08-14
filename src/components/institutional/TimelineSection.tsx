@@ -88,116 +88,122 @@ const TimelineSection = () => {
           {/* Central line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-perdomo-blue via-perdomo-accent to-perdomo-blue hidden lg:block"></div>
 
-          <div className="space-y-8 lg:space-y-12">
-            {timelineEvents.map((event, index) => (
-              <div key={event.year} className={`relative flex items-center ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              }`}>
-                {/* Mobile/Tablet Layout */}
-                <div className="lg:hidden w-full">
-                  <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
-                    event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
-                  }`}>
-                    <CardContent className="p-0">
-                      <div className={`${event.color} text-white p-4`}>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <div className="text-2xl">{event.icon}</div>
-                            <div className="text-2xl font-bold">{event.year}</div>
-                          </div>
-                          {event.featured && (
-                            <Badge className="bg-white/20 text-white border-0 animate-pulse">
-                              Especial
-                            </Badge>
-                          )}
+        <div className="space-y-8 lg:space-y-12">
+          {timelineEvents.map((event, index) => (
+            <div key={event.year} className="relative">
+              {/* Mobile/Tablet Layout */}
+              <div className="lg:hidden w-full">
+                <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
+                  event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
+                }`}>
+                  <CardContent className="p-0">
+                    <div className={`${event.color} text-white p-4`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="text-2xl">{event.icon}</div>
+                          <div className="text-2xl font-bold">{event.year}</div>
                         </div>
+                        {event.featured && (
+                          <Badge className="bg-white/20 text-white border-0 animate-pulse">
+                            Especial
+                          </Badge>
+                        )}
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-perdomo-blue mb-3">
-                          {event.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {event.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-perdomo-blue mb-3">
+                        {event.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {event.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
-                {/* Desktop Layout */}
-                <div className="hidden lg:block lg:w-5/12">
+              {/* Desktop Layout */}
+              <div className="hidden lg:flex lg:items-center">
+                {/* Card à esquerda (índices pares) */}
+                <div className="w-5/12">
                   {index % 2 === 0 && (
-                    <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
-                      event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
-                    }`}>
-                      <CardContent className="p-0">
-                        <div className={`${event.color} text-white p-6`}>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-4">
-                              <div className="text-3xl">{event.icon}</div>
-                              <div className="text-3xl font-bold">{event.year}</div>
+                    <div className="pr-8">
+                      <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
+                        event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
+                      }`}>
+                        <CardContent className="p-0">
+                          <div className={`${event.color} text-white p-6`}>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <div className="text-3xl">{event.icon}</div>
+                                <div className="text-3xl font-bold">{event.year}</div>
+                              </div>
+                              {event.featured && (
+                                <Badge className="bg-white/20 text-white border-0 animate-pulse">
+                                  Especial
+                                </Badge>
+                              )}
                             </div>
-                            {event.featured && (
-                              <Badge className="bg-white/20 text-white border-0 animate-pulse">
-                                Especial
-                              </Badge>
-                            )}
                           </div>
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold text-perdomo-blue mb-3">
-                            {event.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed">
-                            {event.description}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
+                          <div className="p-6">
+                            <h3 className="text-xl font-bold text-perdomo-blue mb-3">
+                              {event.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">
+                              {event.description}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   )}
                 </div>
 
-                {/* Central point */}
-                <div className="hidden lg:flex lg:w-2/12 justify-center">
-                  <div className={`w-6 h-6 ${event.color} rounded-full shadow-lg ${
+                {/* Ponto central */}
+                <div className="w-2/12 flex justify-center">
+                  <div className={`w-6 h-6 ${event.color} rounded-full shadow-lg z-10 ${
                     event.featured ? 'animate-pulse ring-4 ring-perdomo-accent ring-offset-2' : ''
                   }`}></div>
                 </div>
 
-                <div className="hidden lg:block lg:w-5/12">
+                {/* Card à direita (índices ímpares) */}
+                <div className="w-5/12">
                   {index % 2 === 1 && (
-                    <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
-                      event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
-                    }`}>
-                      <CardContent className="p-0">
-                        <div className={`${event.color} text-white p-6`}>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-4">
-                              <div className="text-3xl">{event.icon}</div>
-                              <div className="text-3xl font-bold">{event.year}</div>
+                    <div className="pl-8">
+                      <Card className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
+                        event.featured ? 'ring-2 ring-perdomo-accent ring-offset-2' : ''
+                      }`}>
+                        <CardContent className="p-0">
+                          <div className={`${event.color} text-white p-6`}>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <div className="text-3xl">{event.icon}</div>
+                                <div className="text-3xl font-bold">{event.year}</div>
+                              </div>
+                              {event.featured && (
+                                <Badge className="bg-white/20 text-white border-0 animate-pulse">
+                                  Especial
+                                </Badge>
+                              )}
                             </div>
-                            {event.featured && (
-                              <Badge className="bg-white/20 text-white border-0 animate-pulse">
-                                Especial
-                              </Badge>
-                            )}
                           </div>
-                        </div>
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold text-perdomo-blue mb-3">
-                            {event.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed">
-                            {event.description}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
+                          <div className="p-6">
+                            <h3 className="text-xl font-bold text-perdomo-blue mb-3">
+                              {event.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">
+                              {event.description}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
         </div>
 
         {/* Future Vision */}
