@@ -8,35 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cores quentes e acolhedoras para uma loja de doces */
+    --background: 35 100% 98%; /* Creme muito suave */
+    --foreground: 25 20% 25%; /* Marrom chocolate escuro */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Branco puro para cards */
+    --card-foreground: 25 20% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 25 20% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Paleta principal: tons de rosa dourado e caramelo */
+    --primary: 15 85% 55%; /* Rosa salmão dourado */
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 20 60% 85%; /* Rosa claro suave */
+    
+    /* Tons secundários caramelo */
+    --secondary: 35 40% 92%; /* Bege creme */
+    --secondary-foreground: 25 20% 25%;
+    --secondary-warm: 25 45% 75%; /* Caramelo claro */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cores de apoio */
+    --muted: 35 30% 95%; /* Creme muito claro */
+    --muted-foreground: 25 12% 55%; /* Marrom médio */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 85% 70%; /* Dourado suave */
+    --accent-foreground: 25 20% 25%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Cores de doces */
+    --sweet-pink: 340 75% 80%; /* Rosa doce */
+    --sweet-caramel: 30 60% 65%; /* Caramelo */
+    --sweet-vanilla: 45 40% 90%; /* Baunilha */
+    --sweet-chocolate: 25 40% 35%; /* Chocolate */
+
+    /* Gradientes especiais */
+    --gradient-primary: linear-gradient(135deg, hsl(15 85% 55%), hsl(25 75% 65%));
+    --gradient-soft: linear-gradient(180deg, hsl(35 100% 98%), hsl(35 40% 92%));
+    --gradient-warm: linear-gradient(45deg, hsl(340 75% 80%), hsl(15 85% 55%));
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 25% 88%; /* Bege claro */
+    --input: 35 25% 88%;
+    --ring: 15 85% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Bordas mais suaves */
 
     --sidebar-background: 0 0% 98%;
 
