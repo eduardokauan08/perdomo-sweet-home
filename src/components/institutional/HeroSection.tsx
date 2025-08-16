@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Heart, Star, MapPin, Calendar, Cake, ShoppingBag } from 'lucide-react';
-
+import { heroImages } from '@/data/brandImages';
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -11,13 +11,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-sweet-vanilla via-secondary to-primary/20 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-secondary via-primary-soft to-primary/10 overflow-hidden">
       {/* Background decorations doces */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-sweet-pink/30 rounded-full blur-3xl animate-gentle-bounce"></div>
-        <div className="absolute top-1/2 -left-20 w-60 h-60 bg-primary/10 rounded-full blur-3xl animate-soft-pulse"></div>
-        <div className="absolute bottom-10 right-1/4 w-32 h-32 bg-accent/25 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute top-1/3 left-1/4 w-24 h-24 bg-sweet-caramel/20 rounded-full blur-xl animate-gentle-bounce" style={{animationDelay: '2s'}}></div>
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-gentle-bounce"></div>
+        <div className="absolute top-1/2 -left-20 w-60 h-60 bg-accent/20 rounded-full blur-3xl animate-soft-pulse"></div>
+        <div className="absolute bottom-10 right-1/4 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute top-1/3 left-1/4 w-24 h-24 bg-accent/20 rounded-full blur-xl animate-gentle-bounce" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex items-center min-h-screen py-20">
@@ -31,14 +31,14 @@ const HeroSection = () => {
             </div>
 
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="block text-sweet-chocolate">Perdomo</span>
-                <span className="block bg-gradient-to-r from-primary to-sweet-caramel bg-clip-text text-transparent">Doces</span>
+              <h1 className="font-display text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+                <span className="block text-primary">Perdomo</span>
+                <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Doces</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-sweet-chocolate/80 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-foreground/80 leading-relaxed">
                 <span className="font-semibold text-primary">10 anos</span> adoçando vidas com 
-                <span className="font-semibold text-sweet-caramel"> doces artesanais</span> premium. 
+                <span className="font-semibold text-accent"> doces artesanais</span> premium. 
                 <span className="block mt-2 text-primary">De Goiás para o Brasil, levando tradição e sabor a cada mordida.</span>
               </p>
 
@@ -100,36 +100,37 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Visual Element */}
+          {/* Visual Collage */}
           <div className="relative lg:pl-12">
             <div className="relative">
-              {/* Main visual element */}
-              <div className="aspect-square bg-gradient-to-br from-primary/20 via-sweet-pink/20 to-sweet-caramel/20 rounded-3xl shadow-2xl overflow-hidden flex items-center justify-center border border-primary/20">
-                <div className="w-64 h-64 bg-gradient-to-br from-sweet-vanilla/60 to-card/80 rounded-full flex items-center justify-center shadow-inner backdrop-blur-sm">
-                  <div className="relative">
-                    <Cake className="w-32 h-32 text-primary animate-gentle-bounce" />
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full animate-soft-pulse"></div>
-                  </div>
-                </div>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+                <figure className="col-span-2 row-span-2 aspect-square rounded-3xl overflow-hidden shadow-2xl border border-primary/10">
+                  <img src={heroImages[0].src} alt={heroImages[0].alt} className="w-full h-full object-cover" loading="lazy" />
+                </figure>
+                <figure className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-primary/10">
+                  <img src={heroImages[1].src} alt={heroImages[1].alt} className="w-full h-full object-cover" loading="lazy" />
+                </figure>
+                <figure className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-primary/10">
+                  <img src={heroImages[2].src} alt={heroImages[2].alt} className="w-full h-full object-cover" loading="lazy" />
+                </figure>
+                <figure className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-primary/10">
+                  <img src={heroImages[3].src} alt={heroImages[3].alt} className="w-full h-full object-cover" loading="lazy" />
+                </figure>
+                <figure className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-primary/10">
+                  <img src={heroImages[4].src} alt={heroImages[4].alt} className="w-full h-full object-cover" loading="lazy" />
+                </figure>
               </div>
-              
-              {/* Floating cards */}
+
+              {/* Floating info chips */}
               <div className="absolute -top-6 -right-6 bg-card/90 backdrop-blur-md rounded-2xl shadow-xl p-4 animate-float border border-primary/20">
                 <div className="text-2xl mb-2">🚚</div>
                 <div className="text-sm font-semibold text-primary">Carreta SP</div>
-                <div className="text-xs text-sweet-chocolate/70">Agosto 2024</div>
+                <div className="text-xs text-foreground/70">Agosto 2024</div>
               </div>
-              
               <div className="absolute -bottom-6 -left-6 bg-card/90 backdrop-blur-md rounded-2xl shadow-xl p-4 animate-float border border-primary/20" style={{animationDelay: '1s'}}>
                 <div className="text-2xl mb-2">🎉</div>
                 <div className="text-sm font-semibold text-primary">10 Anos</div>
-                <div className="text-xs text-sweet-chocolate/70">2015-2025</div>
-              </div>
-              
-              {/* Card adicional de delivery */}
-              <div className="absolute top-1/3 -left-8 bg-gradient-to-r from-sweet-pink/80 to-primary/70 backdrop-blur-md rounded-xl p-3 shadow-lg animate-gentle-bounce border border-white/30" style={{animationDelay: '2s'}}>
-                <ShoppingBag className="w-6 h-6 text-white mx-auto" />
-                <div className="text-xs text-white mt-1 font-medium text-center">iFood</div>
+                <div className="text-xs text-foreground/70">2015-2025</div>
               </div>
             </div>
           </div>

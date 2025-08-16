@@ -64,14 +64,24 @@ const AboutSection = () => {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-perdomo-warm to-perdomo-light rounded-2xl shadow-xl overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-8xl">
-                🏪
+            {/* Foto-mosaico conceito */}
+            <div className="grid grid-cols-3 gap-3 lg:gap-4">
+              <div className="col-span-2 row-span-2 aspect-[4/3] overflow-hidden rounded-3xl shadow-xl">
+                <img src="/placeholder.svg?height=800&width=1200" alt="Doces artesanais Perdomo - vitrine" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="aspect-square overflow-hidden rounded-2xl shadow-lg">
+                <img src="/placeholder.svg?height=500&width=500" alt="Brigadeiros gourmet" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+                <img src="/placeholder.svg?height=600&width=450" alt="Ingredientes selecionados" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
+                <img src="/placeholder.svg?height=500&width=700" alt="Bolo artesanal" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 border border-perdomo-accent/20">
-              <div className="text-2xl font-bold text-perdomo-blue">2015</div>
-              <div className="text-sm text-gray-600">Fundação</div>
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4 border border-primary/20">
+              <div className="text-2xl font-bold text-primary">2015</div>
+              <div className="text-sm text-foreground/70">Fundação</div>
             </div>
           </div>
         </div>
