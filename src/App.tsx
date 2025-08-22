@@ -14,6 +14,7 @@ import Organization from "./pages/Organization";
 import Admin from "./pages/Admin";
 import AdminUsers from "./pages/AdminUsers";
 import Account from "./pages/Account";
+import ComingSoon from "./pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/portal/admin" element={<Admin />} />
           <Route path="/portal/admin-users" element={<AdminUsers />} />
           <Route path="/portal/conta" element={<Account />} />
+          <Route path="/em-breve" element={<ComingSoon />} />
           <Route path="/" element={<Home />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

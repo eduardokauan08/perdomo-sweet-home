@@ -158,6 +158,55 @@ export default {
 					'50%': {
 						boxShadow: '0 0 30px hsl(var(--primary) / 0.5)'
 					}
+				},
+				// Coming Soon animations
+				'bounce-slow': {
+					'0%, 100%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(-25px)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
+				},
+				'sparkle': {
+					'0%, 100%': { 
+						opacity: '0.8', 
+						transform: 'scale(1)' 
+					},
+					'50%': { 
+						opacity: '0.3', 
+						transform: 'scale(0.8)' 
+					}
+				},
+				'pulse-gentle': {
+					'0%, 100%': { 
+						opacity: '0.8' 
+					},
+					'50%': { 
+						opacity: '0.6' 
+					}
+				},
+				'fade-in-delayed': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'translateY(10px)' 
+					},
+					'100%': { 
+						opacity: '1', 
+						transform: 'translateY(0)' 
+					}
+				},
+				'fade-in-delayed-2': {
+					'0%': { 
+						opacity: '0', 
+						transform: 'translateY(10px)' 
+					},
+					'100%': { 
+						opacity: '1', 
+						transform: 'translateY(0)' 
+					}
 				}
 			},
 			animation: {
@@ -168,7 +217,17 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'gentle-bounce': 'gentle-bounce 2s infinite',
 				'soft-pulse': 'soft-pulse 3s ease-in-out infinite',
-				'sweet-glow': 'sweet-glow 2s ease-in-out infinite'
+				'sweet-glow': 'sweet-glow 2s ease-in-out infinite',
+				// Coming Soon animations
+				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
+				'bounce-delayed': 'bounce-slow 3s ease-in-out 1s infinite',
+				'float-delayed': 'float 4s ease-in-out 2s infinite',
+				'sparkle': 'sparkle 2s ease-in-out infinite',
+				'sparkle-delayed': 'sparkle 2s ease-in-out 1s infinite',
+				'pulse-gentle': 'pulse-gentle 2s ease-in-out infinite',
+				'spin-slow': 'spin 8s linear infinite',
+				'fade-in-delayed': 'fade-in-delayed 0.6s ease-out 0.2s both',
+				'fade-in-delayed-2': 'fade-in-delayed-2 0.6s ease-out 0.4s both'
 			}
 		}
 	},
