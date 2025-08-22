@@ -1,9 +1,23 @@
 import React from 'react';
-import { ChefHat, Heart, Clock } from 'lucide-react';
+import { ChefHat, Heart, Clock, ArrowLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const ComingSoon = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted flex items-center justify-center relative overflow-hidden">
+      {/* Back button */}
+      <Button
+        variant="outline"
+        size="sm"
+        className="absolute top-6 left-6 z-20"
+        onClick={() => navigate(-1)}
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Voltar
+      </Button>
       {/* Animated ingredients falling */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating ingredients */}
