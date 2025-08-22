@@ -54,23 +54,19 @@ const NewsSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {news.map((item, index) => (
+        <div className="grid lg:grid-cols-2 gap-8">
+          {news.map((item) => (
             <Card 
               key={item.id} 
-              className={`group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden ${
-                item.featured 
-                  ? 'lg:col-span-2 lg:row-span-1' 
-                  : ''
-              } ${index === 0 ? 'lg:col-span-2' : ''}`}
+              className="group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden"
             >
               <CardContent className="p-0">
-                <div className={`${item.featured ? 'lg:flex' : ''}`}>
+                <div>
                   {/* Visual Section */}
-                  <div className={`relative ${item.featured ? 'lg:w-1/2' : ''} bg-gradient-to-br from-perdomo-warm to-perdomo-accent/20 p-8 lg:p-12 flex items-center justify-center`}>
+                  <div className="relative bg-gradient-to-br from-perdomo-warm to-perdomo-accent/20 p-8 flex items-center justify-center">
                     <div className="text-center">
-                      <div className={`inline-flex items-center justify-center w-20 h-20 ${item.color} text-white rounded-3xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <item.icon className="h-10 w-10" />
+                      <div className={`inline-flex items-center justify-center w-16 h-16 ${item.color} text-white rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                        <item.icon className="h-8 w-8" />
                       </div>
                       <Badge 
                         variant="secondary" 
@@ -81,20 +77,18 @@ const NewsSection = () => {
                     </div>
                     
                     {/* Floating decorations */}
-                    <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full blur-sm"></div>
-                    <div className="absolute bottom-6 left-6 w-12 h-12 bg-white/10 rounded-full blur-lg"></div>
+                    <div className="absolute top-4 right-4 w-6 h-6 bg-white/20 rounded-full blur-sm"></div>
+                    <div className="absolute bottom-4 left-4 w-8 h-8 bg-white/10 rounded-full blur-lg"></div>
                   </div>
 
                   {/* Content Section */}
-                  <div className={`p-6 lg:p-8 ${item.featured ? 'lg:w-1/2 lg:flex lg:flex-col lg:justify-center' : ''}`}>
+                  <div className="p-6">
                     <div className="space-y-4">
-                      <h3 className={`font-bold text-perdomo-blue leading-tight ${
-                        item.featured ? 'text-2xl lg:text-3xl' : 'text-xl'
-                      }`}>
+                      <h3 className="text-xl font-bold text-perdomo-blue leading-tight">
                         {item.title}
                       </h3>
                       
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed text-sm">
                         {item.description}
                       </p>
 
@@ -109,22 +103,21 @@ const NewsSection = () => {
                         </div>
                       </div>
 
-                      {item.featured && (
-                        <div className="pt-4">
-                          <Button
-                            className="bg-perdomo-blue hover:bg-perdomo-blue/90 text-white group"
-                            onClick={() => {
-                              if (item.id === 1) {
-                                const element = document.getElementById('locations');
-                                if (element) element.scrollIntoView({ behavior: 'smooth' });
-                              }
-                            }}
-                          >
-                            {item.id === 1 ? 'Ver Localização' : 'Saiba Mais'}
-                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                        </div>
-                      )}
+                      <div className="pt-2">
+                        <Button
+                          size="sm"
+                          className="bg-perdomo-blue hover:bg-perdomo-blue/90 text-white group"
+                          onClick={() => {
+                            if (item.id === 1) {
+                              const element = document.getElementById('locations');
+                              if (element) element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          {item.id === 1 ? 'Ver Localização' : 'Saiba Mais'}
+                          <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
