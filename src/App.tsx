@@ -15,6 +15,7 @@ import Admin from "./pages/Admin";
 import AdminUsers from "./pages/AdminUsers";
 import Account from "./pages/Account";
 import ComingSoon from "./pages/ComingSoon";
+import AccessBlocked from "./pages/AccessBlocked";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/portal/admin-users" element={<AdminUsers />} />
           <Route path="/portal/conta" element={<Account />} />
           <Route path="/em-breve" element={<ComingSoon />} />
+          <Route path="/acesso-bloqueado" element={<AccessBlocked />} />
           <Route path="/" element={<Home />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
